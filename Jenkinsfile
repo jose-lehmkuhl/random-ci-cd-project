@@ -5,7 +5,7 @@ pipeline {
             steps { 
                 echo 'Building..'
                 sh 'npm install' 
-                sh 'pm2 start index.js' 
+                sh 'pm2 start server.js' 
             }
         }
     }
