@@ -1,16 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:12-alpine' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
     stages {
         stage('Build') {
-            steps {
+            steps { 
                 echo 'Building..'
                 sh 'npm install' 
-                sh 'npm start' 
+                sh 'npm install pm2@latest'
+                sh 'pm2 start index.js' 
             }
         }
     }
